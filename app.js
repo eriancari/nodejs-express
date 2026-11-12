@@ -1,15 +1,18 @@
 const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
-const { engine } = require('express-handlebars');
+// const { engine } = require('express-handlebars');
 
 const app = express();
 
-app.engine(
-  "hbs",
-  engine({ layoutsDir: "views/layouts", defaultLayout: "main-layout",extname: "hbs" }),
-);
-app.set('view engine', 'hbs'); // what template; also affects the extension of the file
+// app.engine(
+//   "hbs",
+//   engine({ layoutsDir: "views/layouts", defaultLayout: "main-layout",extname: "hbs" }),
+// );
+
+app.set('view engine', 'ejs'); // what template; also affects the extension of the file
+// app.set('view engine', 'hbs'); // what template; also affects the extension of the file
+// app.set('view engine', 'pug'); // what template; also affects the extension of the file
 app.set('views', 'views'); // where to find the template
 
 const adminData = require('./routes/admin');
